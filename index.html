@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Welcome to the Science Learning Platform!</h1>
+    <p>Explore interactive activities to learn about various science topics.</p>
+</div>
+
+<div class="section" id="section-user-info">
+    <h2>Personal Information</h2>
+    <div class="input-container">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+    </div>
+    <div class="input-container">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" placeholder="Enter your age">
+    </div>
+</div>
+
+<div class="section" id="section-calendar">
+    <h2>Choose Your Start Date</h2>
+    <p>Select a start date for your learning schedule:</p>
+    <input type="text" id="datepicker">
+</div>
+
+<div class="section" id="section-quiz">
+    <h2>Identify the Planets</h2>
+    <p>Drag and drop the planets to their correct orbits:</p>
+    <div class="planets-container">
+        <img src="images/earth.png" class="planet" alt="Earth" data-planet="Earth">
+        <img src="images/mars.png" class="planet" alt="Mars" data-planet="Mars">
+        <img src="images/venus.png" class="planet" alt="Venus" data-planet="Venus">
+    </div>
+    <div class="orbits-container">
+        <div class="orbit" data-orbit="Earth">Earth Orbit</div>
+        <div class="orbit" data-orbit="Mars">Mars Orbit</div>
+        <div class="orbit" data-orbit="Venus">Venus Orbit</div>
+    </div>
+</div>
+
+<div class="section" id="section-quiz2">
+    <h2>Categorize Animals</h2>
+    <p>Drag animals to the correct habitat:</p>
+    <div class="animals-container">
+        <img src="images/lion.png" class="animal" alt="Lion" data-habitat="Savannah">
+        <img src="images/penguin.png" class="animal" alt="Penguin" data-habitat="Arctic">
+        <img src="images/eagle.png" class="animal" alt="Eagle" data-habitat="Mountains">
+    </div>
+    <div class="habitats-container">
+        <div class="habitat" data-habitat="Savannah">Savannah</div>
+        <div class="habitat" data-habitat="Arctic">Arctic</div>
+        <div class="habitat" data-habitat="Mountains">Mountains</div>
+    </div>
+</div>
+
+<div class="section" id="section-resize">
+    <h2>Resize the Diagram</h2>
+    <p>Resize the images to match the given aspect ratios:</p>
+    <div class="resize-container">
+        <div class="resize">
+            <img src="images/plant_cell.png" alt="Plant Cell" class="resizable" width="200" height="200">
+        </div>
+        <div class="resize">
+            <img src="images/animal_cell.png" alt="Animal Cell" class="resizable" width="200" height="200">
+        </div>
+    </div>
+</div>
+
+<div class="section" id="section-sort">
+    <h2>Sort the Phases of the Moon</h2>
+    <p>Sort the images in the correct order of the lunar phases:</p>
+    <div class="sortable-container">
+        <ul class="sortable">
+            <li class="sortable-item" data-phase="1">New Moon</li>
+            <li class="sortable-item" data-phase="2">First Quarter</li>
+            <li class="sortable-item" data-phase="3">Full Moon</li>
+            <li class="sortable-item" data-phase="4">Last Quarter</li>
+        </ul>
+    </div>
+</div>
+
+<div class="section" id="section-periodic-table">
+    <h2>Periodic Table Quiz</h2>
+    <p>Click the correct element based on the question:</p>
+    <div class="periodic-table-container">
+        <!-- Add sample elements; for simplicity, not all elements are shown -->
+        <div class="element" data-symbol="H">H</div>
+        <div class="element" data-symbol="He">He</div>
+        <div class="element" data-symbol="Li">Li</div>
+        <div class="element" data-symbol="Be">Be</div>
+        <div class="element" data-symbol="B">B</div>
+    </div>
+    <div class="question" id="element-question"></div>
+</div>
+
+<div class="submit-section">
+    <button onclick="submitAnswers()" id="submit-button">Submit</button>
+    <button onclick="resetForm()" id="reset-button">Reset</button>
+    <p id="submit-message"></p>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<script src="scripts.js"></script>
+
+</body>
+</html>
