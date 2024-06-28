@@ -50,7 +50,7 @@ $(function() {
 
 // Check Answers and Update Progress
 function checkAnswers() {
-    var totalQuestions = 12; // Update total number of questions
+    var totalQuestions = 11; // Update total number of questions
 
     // Reset correct answers counter
     var correctAnswers = 0;
@@ -61,8 +61,10 @@ function checkAnswers() {
 
     // Check Resizable Images
     $(".resizable").each(function() {
-        // Assuming participation in resizing is the goal
-        correctAnswers++;
+        var width = $(this).width();
+        if (width === 200) { // Assuming correct width
+            correctAnswers++;
+        }
     });
 
     // Check Sortable (Phases of the Moon)
@@ -102,11 +104,11 @@ function checkAnswers() {
         }
     });
 
-    // Check Count the Sheep in the Picture
-    var sheepCount = $(".resizable img").data("sheep-count"); // Assuming data attribute for sheep count
-    var userSheepCount = parseInt($("#sheep-count-input").val().trim());
+    // Check Sheep Count
+    var sheepCount = parseInt($("#sheep-count-input").val());
+    var correctSheepCount = $(".resizable img").data("sheep-count");
 
-    if (userSheepCount === sheepCount) {
+    if (sheepCount === correctSheepCount) {
         correctAnswers++;
     }
 
@@ -122,18 +124,80 @@ function checkAnswers() {
 
 
 
-
 // Submit Answers
 window.submitAnswers = function() {
-    var progress = checkAnswers();
-    if (progress === 100) {
+    var totalQuestions = 11; // Update total number of questions
+
+    // Reset correct answers counter
+    var correctAnswers = 0;
+
+    // Check Drag and Drop (Planets and Animals)
+    correctAnswers += $(".orbit.correct").length;
+    correctAnswers += $(".habitat.correct").length;
+
+    // Check Resizable Images
+    $(".resizable").each(function() {
+        var width = $(this).width();
+        if (width === 200) { // Assuming correct width
+            correctAnswers++;
+        }
+    });
+
+    // Check Sortable (Phases of the Moon)
+    var correctOrder = [1, 2, 3, 4]; // Correct order of phases
+    var sortedItems = $(".sortable li").map(function() {
+        return $(this).data("phase");
+    }).get();
+
+    if (JSON.stringify(sortedItems) === JSON.stringify(correctOrder)) {
+        correctAnswers++;
+    } else {
+        // Highlight incomplete section
+        $("#section-sort").addClass("incomplete");
+    }
+
+    // Check Periodic Table Quiz
+    $(".element").each(function() {
+        var symbol = $(this).data("symbol");
+        if (symbol === "H") { // Replace with dynamic check
+            correctAnswers++;
+        }
+    });
+
+    // Check Fill in the Blanks
+    var fillBlank1 = $("#fill-blank-1").val().trim().toLowerCase();
+    if (fillBlank1 === "star") {
+        correctAnswers++;
+    }
+
+    var fillBlank2 = $("#fill-blank-2").val().trim();
+    if (fillBlank2 === "8") {
+        correctAnswers++;
+    }
+
+    // Check Trivia Questions
+    $(".trivia-question").each(function() {
+        var selectedAnswer = $(this).find("input:checked").val();
+        if (selectedAnswer === "32" || selectedAnswer === "Blue Whale" || selectedAnswer === "Mars") {
+            correctAnswers++;
+        }
+    });
+
+    // Calculate Progress
+    var progress = (correctAnswers / totalQuestions) * 100;
+    $("#progress-bar").css("width", progress + "%");
+    $("#progress-text").text(progress.toFixed(0) + "% Completed");
+
+    // Show incomplete message
+    if (progress !== 100) {
+        $("#submit-message").text("Please complete all sections to submit.");
+    } else {
         $("#submit-message").text("Congratulations! You have completed all activities!");
         // Redirect to certificate.html
         window.location.href = "certificate.html";
-    } else {
-        $("#submit-message").text("Keep going! You have completed " + progress.toFixed(0) + "% of the activities.");
     }
 };
+
 
 
     // Reset Form
