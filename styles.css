@@ -266,4 +266,10 @@ body {
     width: 0;
     transition: width 0.3s;
 }
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #eae9e9;
+}
 
