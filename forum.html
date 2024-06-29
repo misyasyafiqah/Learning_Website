@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Discussion - SchoolKids Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #4CAF50;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .header p {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+        .header img {
+            max-width: 10%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .section h2 {
+            text-align: center;
+            color: #4caf50;
+        }
+        .section p {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 1.1em;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 15px;
+            color: #eae9e9;
+        }
+        .input-container {
+            margin: 20px auto;
+            max-width: 800px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            text-align: left;
+        }
+        .input-container label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        .input-container textarea {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #4caf50;
+            border-radius: 8px;
+            font-size: 1em;
+            resize: vertical;
+        }
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 4px 6px rgba(244, 45, 45, 0.1);
+        }
+        .submit-button:hover {
+            background-color: #e2d80d;
+            color: #ffffff;
+        }
+        .opinion-container {
+            text-align: left;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .opinion {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <img src="C:\Users\User\Desktop\kids1.png" alt="SchoolKids" />
+    <h1>Welcome to the SchoolKids Learning Platform!</h1>
+    <p>Join forum discussions to share and learn together.</p>
+</div>
+
+<div class="input-container">
+    <label for="opinion-input">Share your opinion:</label>
+    <textarea id="opinion-input" rows="4" placeholder="Type your opinion here"></textarea>
+    <button onclick="submitOpinion()" class="submit-button">Submit</button>
+</div>
+
+<div id="opinion-list" class="opinion-container">
+    <!-- Opinion items will be dynamically added here -->
+</div>
+
+<div class="footer">
+    <p>&copy; 2024 SchoolKids Learning Platform. All rights reserved.</p>
+</div>
+
+<script>
+    function submitOpinion() {
+        var opinion = document.getElementById("opinion-input").value;
+        if (opinion.trim() === "") {
+            alert("Please enter your opinion.");
+            return;
+        }
+
+        var opinionItem = document.createElement("div");
+        opinionItem.classList.add("opinion");
+        opinionItem.textContent = opinion;
+
+        var opinionList = document.getElementById("opinion-list");
+        opinionList.appendChild(opinionItem);
+
+        // Clear input after submission
+        document.getElementById("opinion-input").value = "";
+    }
+</script>
+
+</body>
+</html>
