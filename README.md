@@ -13,5 +13,5 @@ Welcome to the SchoolKids Learning Platform! This platform provides interactive 
 
 - Muhammad Najmi Zulhusni Bin Mohd Sapuan
 - Aliff Aizuddin Bin Abdul Aziz
-- Misya Syafiqah
-- Alya
+- Misya Syafiqah Binti Mohd Safian
+- Nor Alya Binti Mohamad Nor
