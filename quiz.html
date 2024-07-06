@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchoolKids Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to the SchoolKids Learning Platform!</h1>
+        <p>Explore interactive activities to learn about various topics.</p>
+        <p>Complete the activities to earn certificates!</p>
+    </div>
+
+    <!-- Personal Information Section -->
+    <div class="section" id="section-user-info">
+        <h2>Personal Information</h2>
+        <div class="input-container">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+        </div>
+        <div class="input-container">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age">
+        </div>
+    </div>
+
+    <!-- Calendar Section -->
+    <div class="section" id="section-calendar">
+        <h2>Choose Your Start Date</h2>
+        <p>Select a start date for your learning schedule:</p>
+        <input type="text" id="datepicker">
+    </div>
+
+    <!-- Planets Section -->
+    <div class="section" id="section-quiz">
+        <h2>Identify the Planets</h2>
+        <p>Drag and drop the planets to their correct orbits:</p>
+        <div class="planets-container">
+            <img src="Images/earth.png" class="planet" alt="Earth" data-planet="Earth">
+            <img src="Images/mars.png" class="planet" alt="Mars" data-planet="Mars">
+            <img src="Images/venus.png" class="planet" alt="Venus" data-planet="Venus">
+        </div>
+        <div class="orbits-container">
+            <div class="orbit" data-orbit="Earth">Earth Orbit</div>
+            <div class="orbit" data-orbit="Mars">Mars Orbit</div>
+            <div class="orbit" data-orbit="Venus">Venus Orbit</div>
+        </div>
+    </div>
+
+    <!-- Animals Section -->
+    <div class="section" id="section-quiz2">
+        <h2>Categorize Animals</h2>
+        <p>Drag animals to the correct habitat:</p>
+        <div class="animals-container">
+            <img src="Images/lion.png" class="animal" alt="Lion" data-habitat="Savannah">
+            <img src="Images/penguin.png" class="animal" alt="Penguin" data-habitat="Arctic">
+            <img src="Images/eagle.png"class="animal" alt="Eagle" data-habitat="Mountains">
+        </div>
+        <div class="habitats-container">
+            <div class="habitat" data-habitat="Savannah">Savannah</div>
+            <div class="habitat" data-habitat="Arctic">Arctic</div>
+            <div class="habitat" data-habitat="Mountains">Mountains</div>
+        </div>
+    </div>
+
+    <!-- Sheep Section -->
+    <div class="section" id="section-resize">
+        <h2>Count the Sheep in the Picture</h2>
+        <p>Count how many sheep are in the image:</p>
+        <div class="resize-container">
+            <div class="resize">
+                <img src="Images/sheep_field.png" alt="Sheep Field" class="resizable" width="400" height="300" data-sheep-count="12">
+            </div>
+        </div>
+        <div class="input-container">
+            <label for="sheep-count-input">Enter your answer:</label>
+            <input type="number" id="sheep-count-input" placeholder="Type your answer here">
+        </div>
+    </div>
+
+    <!-- Lunar Phases Section -->
+    <div class="section" id="section-sort">
+        <h2>Sort the Phases of the Moon</h2>
+        <p>Sort the images in the correct order of the lunar phases:</p>
+        <div class="sortable-container">
+            <ul class="sortable">
+                <li class="sortable-item" data-phase="1">New Moon</li>
+                <li class="sortable-item" data-phase="2">First Quarter</li>
+                <li class="sortable-item" data-phase="3">Full Moon</li>
+                <li class="sortable-item" data-phase="4">Last Quarter</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Fill in the Blank Section -->
+    <div class="section" id="section-fill-blank">
+        <h2>Fill in the Blank</h2>
+        <p>Complete the sentences with the correct words:</p>
+        <p>The sun is a _____.</p>
+        <input type="text" id="fill-blank-1" placeholder="Type your answer here" data-answer="star">
+
+        <p>What is 5 + 3? _____</p>
+        <input type="text" id="fill-blank-2" placeholder="Type your answer here" data-answer="8">
+    </div>
+
+    <!-- Trivia Section -->
+    <div class="section" id="section-trivia">
+        <h2>Trivia Questions</h2>
+        <div class="trivia-question">
+            <p>How many teeth does an adult human have?</p>
+            <div class="answer-options">
+                <label><input type="radio" name="teeth" value="32"> 32</label>
+                <label><input type="radio" name="teeth" value="28"> 28</label>
+                <label><input type="radio" name="teeth" value="36"> 36</label>
+            </div>
+        </div>
+        <div class="trivia-question">
+            <p>What is the largest known living land animal?</p>
+            <div class="answer-options">
+                <label><input type="radio" name="land-animal" value="Elephant"> Elephant</label>
+                <label><input type="radio" name="land-animal" value="Giraffe"> Giraffe</label>
+                <label><input type="radio" name="land-animal" value="Blue Whale"> Blue Whale</label>
+            </div>
+        </div>
+        <div class="trivia-question">
+            <p>Which planet is known as the Red Planet?</p>
+            <div class="answer-options">
+                <label><input type="radio" name="red-planet" value="Venus"> Venus</label>
+                <label><input type="radio" name="red-planet" value="Mars"> Mars</label>
+                <label><input type="radio" name="red-planet" value="Jupiter"> Jupiter</label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Tracking Section -->
+    <div class="section" id="section-progress">
+        <h2>Progress Tracking</h2>
+        <p>Track your progress across all activities:</p>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar" style="width: 0;"></div>
+        </div>
+        <p id="progress-text">0% Completed</p>
+        <!-- Certificate Button -->
+        <button onclick="window.location.href='certificate.html'" id="certificate-button" style="display: none;">Get Certificate</button>
+    </div>
+
+    <!-- Submit Section -->
+    <div class="submit-section">
+        <button onclick="submitAnswers()" id="submit-button">Submit</button>
+        <button onclick="resetForm()" id="reset-button">Reset</button>
+        <p id="submit-message"></p>
+    </div>
+    <!-- Success Modal -->
+<div id="success-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="close-modal">&times;</span>
+        <h2>Congratulations!</h2>
+        <p>You have completed all activities successfully!</p>
+        <button onclick="window.location.href='certificate.html'">Get Your Certificate</button>
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 SchoolKids LLC. All Rights Reserved. CGMA, Universiti Teknologi Malaysia</p>
+        <p>Web designers</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
